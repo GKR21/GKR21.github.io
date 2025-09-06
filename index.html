@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rashmika - Software Engineer & AI Developer</title>
+    <title>Rashmika - Software Engineering Student</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,56 +14,44 @@
         }
 
         :root {
-            --primary: #ff003c;
-            --secondary: #0a0a0a;
-            --accent: #2d2d2d;
-            --light: #ffffff;
-            --dark: #000000;
-            --success: #00ff47;
+            --primary: #5b7db1;
+            --secondary: #61a0af;
+            --accent: #7eb4b2;
+            --light: #f7f9f7;
+            --dark: #2c3e50;
+            --success: #6cc2a2;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
         }
 
         body {
-            font-family: 'Courier New', monospace;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            color: var(--light);
+            color: var(--dark);
             overflow-x: hidden;
-            background: var(--dark);
+            background: var(--light);
             position: relative;
         }
 
-        /* Tech Background */
-        .tech-bg {
+        /* Animated Background */
+        .animated-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.4;
+            opacity: 0.05;
             pointer-events: none;
             background: 
-                radial-gradient(circle at 20% 30%, rgba(255, 0, 60, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(255, 0, 60, 0.1) 0%, transparent 40%),
-                linear-gradient(0deg, transparent 79px, rgba(255, 0, 60, 0.1) 79px, rgba(255, 0, 60, 0.1) 80px, transparent 80px),
-                linear-gradient(90deg, transparent 79px, rgba(255, 0, 60, 0.1) 79px, rgba(255, 0, 60, 0.1) 80px, transparent 80px);
-            background-size: 100% 100%, 100% 100%, 80px 80px, 80px 80px;
+                radial-gradient(circle at 20% 30%, var(--primary) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, var(--secondary) 0%, transparent 40%);
+            background-size: 100% 100%, 100% 100%;
+            animation: float 20s ease-in-out infinite;
         }
 
-        .circuit-lines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.2;
-            pointer-events: none;
-        }
-
-        .circuit-line {
-            position: absolute;
-            background: var(--primary);
-            box-shadow: 0 0 10px var(--primary);
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
         }
 
         /* Navigation */
@@ -70,7 +59,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 10, 10, 0.9);
+            background: rgba(247, 249, 247, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 5%;
@@ -78,18 +67,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--primary);
+            border-bottom: 1px solid rgba(91, 125, 177, 0.2);
         }
 
         .logo {
             font-weight: 700;
             font-size: 1.5rem;
-            color: var(--primary);
-            text-shadow: 0 0 10px rgba(255, 0, 60, 0.5);
+            background: var(--gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-family: 'Quicksand', sans-serif;
         }
 
         nav.scrolled {
-            background: rgba(10, 10, 10, 0.98);
+            background: rgba(247, 249, 247, 0.98);
             padding: 0.7rem 5%;
         }
 
@@ -102,14 +94,11 @@
 
         nav a {
             text-decoration: none;
-            color: var(--light);
+            color: var(--dark);
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
-            font-family: 'Courier New', monospace;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
+            font-family: 'Quicksand', sans-serif;
         }
 
         nav a::after {
@@ -119,7 +108,7 @@
             height: 2px;
             bottom: -5px;
             left: 0;
-            background: var(--primary);
+            background: var(--gradient);
             transition: width 0.3s ease;
         }
 
@@ -138,13 +127,13 @@
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--light);
+            color: var(--dark);
         }
 
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: rgba(0, 0, 0, 0.7);
+            background: var(--gradient);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -152,21 +141,6 @@
             color: white;
             position: relative;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(circle at 50% 50%, rgba(255, 0, 60, 0.1) 0%, transparent 50%);
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
         }
 
         .hero-content {
@@ -179,24 +153,24 @@
         .hero h1 {
             font-size: clamp(2.5rem, 5vw, 4rem);
             margin-bottom: 1rem;
-            text-shadow: 0 0 15px rgba(255, 0, 60, 0.7);
-            font-family: 'Courier New', monospace;
+            font-family: 'Quicksand', sans-serif;
             font-weight: 700;
+            animation: slideUp 1s ease-out 0.2s both;
         }
 
         .typing-text {
             min-height: 2.5rem;
             margin-bottom: 2rem;
             font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: var(--primary);
-            text-shadow: 0 0 10px rgba(255, 0, 60, 0.5);
+            font-family: 'Quicksand', sans-serif;
+            animation: slideUp 1s ease-out 0.4s both;
         }
 
         .cursor {
             display: inline-block;
             width: 10px;
             height: 1.2em;
-            background-color: var(--primary);
+            background-color: white;
             margin-left: 5px;
             animation: blink 0.7s infinite;
             vertical-align: middle;
@@ -210,7 +184,8 @@
         .hero .description {
             font-size: 1.1rem;
             margin-bottom: 3rem;
-            opacity: 0.8;
+            opacity: 0.9;
+            animation: slideUp 1s ease-out 0.6s both;
         }
 
         .cta-buttons {
@@ -218,49 +193,29 @@
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
+            animation: slideUp 1s ease-out 0.8s both;
         }
 
         .cta-button {
             display: inline-block;
             padding: 1rem 2rem;
-            background: rgba(255, 0, 60, 0.2);
+            background: rgba(255, 255, 255, 0.2);
             color: white;
             text-decoration: none;
-            border-radius: 4px;
-            border: 1px solid var(--primary);
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
-            font-family: 'Courier New', monospace;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 0, 60, 0.4), transparent);
-            transition: 0.5s;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .cta-button.primary {
-            background: rgba(255, 0, 60, 0.3);
+            font-family: 'Quicksand', sans-serif;
             font-weight: 600;
         }
 
+        .cta-button.primary {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
         .cta-button:hover {
-            background: rgba(255, 0, 60, 0.4);
+            background: rgba(255, 255, 255, 0.4);
             transform: translateY(-2px);
-            box-shadow: 0 0 15px rgba(255, 0, 60, 0.5);
         }
 
         @keyframes slideUp {
@@ -285,12 +240,12 @@
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 3rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-family: 'Courier New', monospace;
+            background: var(--gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-family: 'Quicksand', sans-serif;
             font-weight: 700;
-            text-shadow: 0 0 10px rgba(255, 0, 60, 0.5);
             position: relative;
         }
 
@@ -299,9 +254,9 @@
             display: block;
             width: 100px;
             height: 3px;
-            background: var(--primary);
+            background: var(--gradient);
             margin: 10px auto;
-            box-shadow: 0 0 10px rgba(255, 0, 60, 0.5);
+            border-radius: 3px;
         }
 
         /* About Section */
@@ -322,22 +277,20 @@
         .profile-image {
             width: 100%;
             height: 300px;
-            border-radius: 5px;
+            border-radius: 20px;
             object-fit: cover;
-            box-shadow: 0 0 30px rgba(255, 0, 60, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
-            background: linear-gradient(45deg, var(--dark), var(--primary));
+            background: var(--gradient);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 5rem;
-            border: 1px solid var(--primary);
         }
 
         .profile-image:hover {
             transform: translateY(-10px);
-            box-shadow: 0 0 40px rgba(255, 0, 60, 0.5);
         }
 
         .about-text {
@@ -347,22 +300,21 @@
 
         .about-text p {
             margin-bottom: 1.5rem;
-            background: rgba(10, 10, 10, 0.7);
+            background: rgba(91, 125, 177, 0.05);
             padding: 1.5rem;
-            border-left: 3px solid var(--primary);
-            border-radius: 0 5px 5px 0;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
         }
 
         .university-badge {
             display: inline-block;
-            background: linear-gradient(45deg, var(--dark), var(--primary));
+            background: var(--gradient);
             color: white;
             padding: 0.5rem 1.5rem;
-            border-radius: 4px;
+            border-radius: 50px;
             font-size: 0.9rem;
             margin-top: 1rem;
-            border: 1px solid var(--primary);
-            font-family: 'Courier New', monospace;
+            font-family: 'Quicksand', sans-serif;
         }
 
         /* Skills Section */
@@ -374,12 +326,12 @@
         }
 
         .skill-card {
-            background: rgba(10, 10, 10, 0.7);
+            background: white;
             padding: 2rem;
-            border-radius: 5px;
-            box-shadow: 0 0 20px rgba(255, 0, 60, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
-            border: 1px solid #2d2d2d;
+            border: 1px solid rgba(91, 125, 177, 0.1);
             position: relative;
             overflow: hidden;
         }
@@ -391,12 +343,12 @@
             left: 0;
             width: 5px;
             height: 100%;
-            background: var(--primary);
+            background: var(--gradient);
         }
 
         .skill-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(255, 0, 60, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
         }
 
         .skill-card h3 {
@@ -406,9 +358,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-family: 'Courier New', monospace;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-family: 'Quicksand', sans-serif;
         }
 
         .skill-list {
@@ -425,16 +375,16 @@
         }
 
         .skill-list li::before {
-            content: '>>';
+            content: '▸';
             position: absolute;
             left: 0;
-            color: var(--primary);
+            color: var(--secondary);
             font-weight: bold;
         }
 
         .progress-bar {
             height: 6px;
-            background: #2d2d2d;
+            background: #f0f0f0;
             border-radius: 3px;
             margin-top: 0.5rem;
             overflow: hidden;
@@ -443,9 +393,8 @@
 
         .progress {
             height: 100%;
-            background: var(--primary);
+            background: var(--gradient);
             border-radius: 3px;
-            box-shadow: 0 0 10px rgba(255, 0, 60, 0.5);
             position: relative;
             overflow: hidden;
         }
@@ -474,7 +423,8 @@
 
         @keyframes move {
             0% { background-position: 0 0; }
-            100% { background-position: 50px 50px; }
+            100% { background-position: 50px 50px;
+            }
         }
 
         /* Projects Section */
@@ -486,103 +436,33 @@
         }
 
         .project-card {
-            background: rgba(10, 10, 10, 0.7);
-            border-radius: 5px;
+            background: white;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 0 20px rgba(255, 0, 60, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
-            border: 1px solid #2d2d2d;
+            border: 1px solid rgba(91, 125, 177, 0.1);
+            text-align: center;
+            padding: 2rem;
         }
 
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 0 30px rgba(255, 0, 60, 0.4);
-        }
-
-        .project-image {
-            height: 200px;
-            background: linear-gradient(45deg, var(--dark), var(--primary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid var(--primary);
-        }
-
-        .project-image i {
-            font-size: 3rem;
-            opacity: 0.8;
-            text-shadow: 0 0 15px rgba(255, 0, 60, 0.5);
-        }
-
-        .project-content {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
         }
 
         .project-content h3 {
-            margin-bottom: 0.5rem;
-            color: var(--light);
-            font-family: 'Courier New', monospace;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid var(--primary);
-            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            font-family: 'Quicksand', sans-serif;
         }
 
         .project-content p {
             margin-bottom: 1rem;
             flex-grow: 1;
-        }
-
-        .project-tech {
-            display: flex;
-            gap: 0.5rem;
-            margin: 1rem 0;
-            flex-wrap: wrap;
-        }
-
-        .tech-tag {
-            background: linear-gradient(45deg, var(--dark), var(--primary));
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            border: 1px solid var(--primary);
-            font-family: 'Courier New', monospace;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: auto;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 0, 60, 0.1);
-            color: var(--primary);
-            text-decoration: none;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            border: 1px solid var(--primary);
-            font-family: 'Courier New', monospace;
-        }
-
-        .project-link:hover {
-            background: rgba(255, 0, 60, 0.3);
-            box-shadow: 0 0 10px rgba(255, 0, 60, 0.3);
+            color: #666;
         }
 
         /* Contact Section */
@@ -606,19 +486,18 @@
 
         input, textarea {
             padding: 1rem;
-            background: rgba(10, 10, 10, 0.7);
-            border: 1px solid #2d2d2d;
-            border-radius: 4px;
+            background: white;
+            border: 2px solid #f0f0f0;
+            border-radius: 10px;
             font-family: inherit;
             transition: all 0.3s ease;
-            color: var(--light);
-            font-family: 'Courier New', monospace;
+            color: var(--dark);
         }
 
         input:focus, textarea:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 10px rgba(255, 0, 60, 0.3);
+            box-shadow: 0 0 0 3px rgba(91, 125, 177, 0.1);
         }
 
         textarea {
@@ -629,36 +508,33 @@
 
         .submit-btn {
             grid-column: 1 / -1;
-            background: linear-gradient(45deg, var(--dark), var(--primary));
+            background: var(--gradient);
             color: white;
             border: none;
             padding: 1rem 2rem;
-            border-radius: 4px;
+            border-radius: 10px;
             cursor: pointer;
             font-size: 1rem;
             transition: all 0.3s ease;
             font-weight: 600;
-            font-family: 'Courier New', monospace;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border: 1px solid var(--primary);
+            font-family: 'Quicksand', sans-serif;
         }
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 15px rgba(255, 0, 60, 0.5);
+            box-shadow: 0 5px 15px rgba(91, 125, 177, 0.3);
         }
 
         .form-message {
             grid-column: 1 / -1;
             padding: 1rem;
-            border-radius: 4px;
+            border-radius: 10px;
             text-align: center;
             display: none;
         }
 
         .form-message.success {
-            background: rgba(0, 255, 71, 0.1);
+            background: rgba(108, 194, 162, 0.1);
             color: var(--success);
             display: block;
             border: 1px solid var(--success);
@@ -670,7 +546,6 @@
             color: white;
             text-align: center;
             padding: 3rem 2rem 2rem;
-            border-top: 1px solid var(--primary);
         }
 
         .social-links {
@@ -688,16 +563,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 4px;
-            background: rgba(255, 0, 60, 0.2);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
-            border: 1px solid var(--primary);
         }
 
         .social-links a:hover {
-            background: linear-gradient(45deg, var(--dark), var(--primary));
+            background: var(--gradient);
             transform: translateY(-3px);
-            box-shadow: 0 0 15px rgba(255, 0, 60, 0.5);
         }
 
         .back-to-top {
@@ -707,12 +580,10 @@
             text-decoration: none;
             opacity: 0.7;
             transition: opacity 0.3s ease;
-            font-family: 'Courier New', monospace;
         }
 
         .back-to-top:hover {
             opacity: 1;
-            color: var(--primary);
         }
 
         /* Responsive Design */
@@ -736,14 +607,13 @@
                 height: 100vh;
                 width: 70%;
                 flex-direction: column;
-                background: rgba(10, 10, 10, 0.95);
+                background: white;
                 padding: 2rem;
-                box-shadow: 5px 0 15px rgba(255, 0, 60, 0.2);
+                box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
                 transition: left 0.3s ease;
                 z-index: 1000;
                 gap: 2rem;
                 justify-content: center;
-                border-right: 1px solid var(--primary);
             }
             
             nav ul.active {
@@ -785,45 +655,11 @@
             outline: 2px solid var(--primary);
             outline-offset: 2px;
         }
-        
-        /* GitHub Hosting Instructions */
-        .github-instructions {
-            background: rgba(10, 10, 10, 0.9);
-            border: 1px solid var(--primary);
-            border-radius: 5px;
-            padding: 2rem;
-            margin: 2rem auto;
-            max-width: 800px;
-        }
-        
-        .github-instructions h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            border-bottom: 1px solid var(--primary);
-            padding-bottom: 0.5rem;
-        }
-        
-        .github-instructions ol {
-            margin-left: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .github-instructions li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .github-instructions code {
-            background: rgba(255, 0, 60, 0.1);
-            padding: 0.2rem 0.4rem;
-            border-radius: 3px;
-            font-family: 'Courier New', monospace;
-        }
     </style>
 </head>
 <body>
-    <!-- Tech Background -->
-    <div class="tech-bg"></div>
-    <div class="circuit-lines" id="circuitLines"></div>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
 
     <!-- Navigation -->
     <nav id="navbar">
@@ -835,7 +671,7 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="#projects">Learning Path</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -846,9 +682,9 @@
             <h1>H G K Rashmika</h1>
             <div class="typing-text" id="typing-text"></div>
             <div class="cursor" id="cursor"></div>
-            <p class="description">Software Engineering Student & AI Developer</p>
+            <p class="description">Software Engineering Student & AI Enthusiast</p>
             <div class="cta-buttons">
-                <a href="#projects" class="cta-button primary">View My Work</a>
+                <a href="#about" class="cta-button primary">About Me</a>
                 <a href="#contact" class="cta-button">Get In Touch</a>
             </div>
         </div>
@@ -881,22 +717,22 @@
                 <ul class="skill-list">
                     <li>Machine Learning Fundamentals
                         <div class="progress-bar">
-                            <div class="progress" style="width: 75%"></div>
+                            <div class="progress" style="width: 45%"></div>
                         </div>
                     </li>
                     <li>Neural Networks
                         <div class="progress-bar">
-                            <div class="progress" style="width: 65%"></div>
+                            <div class="progress" style="width: 30%"></div>
                         </div>
                     </li>
                     <li>Data Analysis
                         <div class="progress-bar">
-                            <div class="progress" style="width: 70%"></div>
+                            <div class="progress" style="width: 40%"></div>
                         </div>
                     </li>
                     <li>Python for AI
                         <div class="progress-bar">
-                            <div class="progress" style="width: 80%"></div>
+                            <div class="progress" style="width: 50%"></div>
                         </div>
                     </li>
                 </ul>
@@ -906,22 +742,22 @@
                 <ul class="skill-list">
                     <li>HTML/CSS/JavaScript
                         <div class="progress-bar">
-                            <div class="progress" style="width: 85%"></div>
+                            <div class="progress" style="width: 60%"></div>
                         </div>
                     </li>
                     <li>React & Node.js
                         <div class="progress-bar">
-                            <div class="progress" style="width: 70%"></div>
+                            <div class="progress" style="width: 35%"></div>
                         </div>
                     </li>
                     <li>Database Management
                         <div class="progress-bar">
-                            <div class="progress" style="width: 75%"></div>
+                            <div class="progress" style="width: 40%"></div>
                         </div>
                     </li>
                     <li>RESTful APIs
                         <div class="progress-bar">
-                            <div class="progress" style="width: 65%"></div>
+                            <div class="progress" style="width: 30%"></div>
                         </div>
                     </li>
                 </ul>
@@ -931,22 +767,22 @@
                 <ul class="skill-list">
                     <li>Deep Learning frameworks
                         <div class="progress-bar">
-                            <div class="progress" style="width: 50%"></div>
+                            <div class="progress" style="width: 25%"></div>
                         </div>
                     </li>
                     <li>Cloud Computing
                         <div class="progress-bar">
-                            <div class="progress" style="width: 40%"></div>
+                            <div class="progress" style="width: 20%"></div>
                         </div>
                     </li>
                     <li>Advanced Algorithms
                         <div class="progress-bar">
-                            <div class="progress" style="width: 60%"></div>
+                            <div class="progress" style="width: 35%"></div>
                         </div>
                     </li>
                     <li>Software Architecture
                         <div class="progress-bar">
-                            <div class="progress" style="width: 55%"></div>
+                            <div class="progress" style="width: 30%"></div>
                         </div>
                     </li>
                 </ul>
@@ -954,62 +790,26 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section (Learning Path) -->
     <section id="projects">
-        <h2 class="section-title">Academic Projects</h2>
+        <h2 class="section-title">My Learning Path</h2>
         <div class="projects-grid">
             <div class="project-card">
-                <div class="project-image">
-                    <i class="fas fa-robot"></i>
-                </div>
                 <div class="project-content">
-                    <h3>AI Classification System</h3>
-                    <p>Developed a machine learning model for image classification using Python and TensorFlow as part of my university coursework.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">TensorFlow</span>
-                        <span class="tech-tag">Computer Vision</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> View Project</a>
-                    </div>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Currently exploring the fundamentals of artificial intelligence and machine learning through online courses and university curriculum. Focusing on understanding algorithms and their practical applications.</p>
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-image">
-                    <i class="fas fa-laptop-code"></i>
-                </div>
                 <div class="project-content">
-                    <h3>University Management System</h3>
-                    <p>Created a full-stack web application for managing student records and course information using MERN stack.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">Express</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        <a href="https://github.com/GKR21" class="project-link"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
+                    <h3>Full Stack Development</h3>
+                    <p>Learning the complete web development stack including frontend and backend technologies. Building small practice projects to understand how different components work together.</p>
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-image">
-                    <i class="fas fa-chart-line"></i>
-                </div>
                 <div class="project-content">
-                    <h3>Data Analysis Tool</h3>
-                    <p>Built a data visualization dashboard for analyzing and presenting complex datasets with interactive charts.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">D3.js</span>
-                        <span class="tech-tag">Data Visualization</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        <a href="https://github.com/GKR21" class="project-link"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
+                    <h3>University Projects</h3>
+                    <p>Working on various academic projects as part of my Software Engineering degree. These projects help me apply theoretical knowledge to practical problems and develop problem-solving skills.</p>
                 </div>
             </div>
         </div>
@@ -1036,23 +836,6 @@
                     Thank you for your message! I'll get back to you soon.
                 </div>
             </form>
-        </div>
-    </section>
-
-    <!-- GitHub Hosting Instructions -->
-    <section>
-        <h2 class="section-title">Host This Portfolio</h2>
-        <div class="github-instructions">
-            <h3>How to host this portfolio on GitHub Pages:</h3>
-            <ol>
-                <li>Save this page as <code>index.html</code></li>
-                <li>Create a repository named <code>GKR21.github.io</code> on GitHub</li>
-                <li>Upload your <code>index.html</code> file to the repository</li>
-                <li>Go to repository Settings → Pages</li>
-                <li>Select "Deploy from a branch" and choose the main branch</li>
-                <li>Your portfolio will be live at <code>https://GKR21.github.io</code></li>
-            </ol>
-            <p>For more detailed instructions, visit the <a href="https://pages.github.com/" target="_blank">GitHub Pages documentation</a>.</p>
         </div>
     </section>
 
@@ -1083,7 +866,10 @@
                 index++;
                 setTimeout(type, 100);
             } else {
-                cursor.style.animation = 'none';
+                // Hide cursor after typing is complete
+                setTimeout(() => {
+                    cursor.style.display = 'none';
+                }, 500);
             }
         }
         
@@ -1091,34 +877,6 @@
         window.addEventListener('load', () => {
             setTimeout(type, 1000);
         });
-        
-        // Create circuit lines for background
-        function createCircuitLines() {
-            const circuitLines = document.getElementById('circuitLines');
-            const lineCount = 20;
-            
-            for (let i = 0; i < lineCount; i++) {
-                const line = document.createElement('div');
-                line.classList.add('circuit-line');
-                
-                // Random position and size
-                const isHorizontal = Math.random() > 0.5;
-                const width = isHorizontal ? Math.random() * 200 + 100 : 2;
-                const height = isHorizontal ? 2 : Math.random() * 200 + 100;
-                const top = Math.random() * 100;
-                const left = Math.random() * 100;
-                
-                line.style.width = `${width}px`;
-                line.style.height = `${height}px`;
-                line.style.top = `${top}vh`;
-                line.style.left = `${left}vw`;
-                line.style.opacity = Math.random() * 0.5 + 0.1;
-                
-                circuitLines.appendChild(line);
-            }
-        }
-        
-        createCircuitLines();
         
         // Navigation functionality
         const navbar = document.getElementById('navbar');
@@ -1136,7 +894,7 @@
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                menuToggle.innerHTML = '<i class="fas fa-bars</i>';
             });
         });
         
@@ -1167,13 +925,13 @@
         const contactForm = document.getElementById('contactForm');
         const formMessage = document.getElementById('formMessage');
         
+        // Initially hide the success message
+        formMessage.style.display = 'none';
+        
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // In a real application, you would send the form data to a server here
-            // For this example, we'll just show a success message
-            
-            formMessage.classList.add('success');
+            // Show success message
             formMessage.style.display = 'block';
             
             // Hide the message after 5 seconds
